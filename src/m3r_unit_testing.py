@@ -4,11 +4,11 @@ This module helps you understand:
   -- the difference between PRINT and RETURN
 
 Authors: David Mutchler, Dave Fisher, Vibha Alangar, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
+         their colleagues and Yuanning Zuo.
 """
 ###############################################################################
 #
-# TODO: 1.
+# Done: 1.
 #   Allow this module to use the  rosegraphics.py  module by marking the
 #     src
 #   folder in this project as a "Sources Root", as follows:
@@ -16,10 +16,9 @@ Authors: David Mutchler, Dave Fisher, Vibha Alangar, Mark Hays, Amanda Stouder,
 #     In the Project window (to the left), right click on the src  folder,
 #     then select  Mark Directory As  ~  Sources Root.
 #
-###############################################################################
+##############################################################################
 
 import rosegraphics as rg
-import math
 
 
 def main():
