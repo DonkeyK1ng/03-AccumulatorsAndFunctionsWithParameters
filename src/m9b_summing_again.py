@@ -4,8 +4,8 @@ in its simplest classic forms:
    SUMMING:       total = total + number
 
 Authors: David Mutchler, Dave Fisher, Vibha Alangar, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Yuanning Zuo.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -29,7 +29,15 @@ def run_test_sum_powers():
     print('Testing the   sum_powers   function:')
     print('--------------------------------------------------')
 
-
+    expected=8
+    answer=sum_powers(2,3)
+    print(expected,answer)
+    expected=144.45655
+    answer=sum_powers(100,0.1)
+    print(expected,answer)
+    expected=3.80
+    answer=sum_powers(5,-0.3)
+    print(expected,float(answer))
 def sum_powers(n, p):
     """
     What comes in:  A non-negative integer n
@@ -42,8 +50,14 @@ def sum_powers(n, p):
       -- sum_powers(5, -0.3) returns about 3.80826
       -- sum_powers(100, 0.1) returns about 144.45655
     """
+    total =0
+    for k in range(n):
+        #print(k,n,k**p)
+        total=total+((k+1)**p)
+    return (total)
+
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     #   No fair running the code of  sum_powers  to GENERATE
@@ -65,6 +79,17 @@ def run_test_sum_powers_in_range():
     print('--------------------------------------------------')
     print('Testing the   sum_powers_in_range   function:')
     print('--------------------------------------------------')
+    expected=142.384
+    answer=sum_powers_in_range(3,100,0.1)
+    print('The expected is: ',expected,answer)
+
+    expected=5
+    answer=sum_powers_in_range(2,3,1)
+    print('The expected is:  ',expected,answer)
+
+    expected=39
+    answer=sum_powers_in_range(4,9,1)
+    print('The expected is: ',expected,answer)
 
 
 def sum_powers_in_range(m, n, p):
@@ -79,8 +104,13 @@ def sum_powers_in_range(m, n, p):
     Example:
       -- sum_powers_in_range(3, 100, 0.1) returns about 142.384776
     """
+    total=0
+    for k in range((n-m)+1):
+        print(k)
+        total=total+((m+k)**p)
+    return total
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # Done: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     #   No fair running the code of  sum_powers_in_range  to GENERATE
