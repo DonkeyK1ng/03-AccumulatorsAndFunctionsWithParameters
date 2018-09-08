@@ -5,15 +5,19 @@ This module lets you practice  ** using objects **, including:
   -- accessing their DATA via INSTANCE VARIABLES
 
 Authors: David Mutchler, Dave Fisher, Vibha Alangar, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Yuanning Zuo.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
+import math
 
 
 def main():
     """ Calls the other functions to demonstrate and/or test them. """
     # Test your functions by putting calls to them here:
+    two_circles()
+    circle_and_rectangle()
+    lines(100,200,50,150)
 
 
 def two_circles():
@@ -27,12 +31,21 @@ def two_circles():
     -- Waits for the user to press the mouse, then closes the window.
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement this function, per its green doc-string above.
+    # Done: 2. Implement this function, per its green doc-string above.
     #    -- ANY two rg.Circle objects that meet the criteria are fine.
     #    -- File  COLORS.pdf  lists all legal color-names.
     # Put a statement in   main   to test this function
     #    (by calling this function).
     # ------------------------------------------------------------------
+    window=rg.RoseWindow(400,400)
+    pen=rg.Circle(rg.Point(200,100), 50)
+    pen.fill_color='red'
+    pen1=rg.Circle(rg.Point(270, 200), 80)
+    pen1.fill_color='blue'
+    pen.attach_to(window);
+    pen1.attach_to(window);
+    window.render()
+    window.close_on_mouse_click()
 
 
 def circle_and_rectangle():
@@ -66,8 +79,30 @@ def circle_and_rectangle():
            75.0
            150.0
     """
+    window=rg.RoseWindow(500,500)
+    pen2=rg.Circle(rg.Point(200,200), 10)
+    pen2.fill_color='blue'
+    print('The outline thickness is: ',pen2.outline_thickness)
+    print('The filled colour is',pen2.fill_color)
+    print('The center points are: ',pen2.center)
+    print('The X coordinate is :  ',pen2.center.x)
+    print('The y coordinate  is:  ',pen2.center.y)
+    pen2.attach_to(window);
+    window.render()
+
+    pen3=rg.Rectangle(rg.Point(10,150),rg.Point(100,200))
+
+    pen3.fill_color='red'
+    print('The outline thickness is : ', pen3.outline_thickness)
+    print('The filled colour is:  ',pen3.fill_color)
+    print('The center points are:   ',pen3.get_center())
+    print('The x coordinate is:  ',pen3.corner_1)
+    print('The y coordinate is:  ',pen3.corner_2)
+    pen3.attach_to(window)
+    window.render()
+    window.close_on_mouse_click()
     # ------------------------------------------------------------------
-    # TODO: 3. Implement this function, per its green doc-string above.
+    # Done: 3. Implement this function, per its green doc-string above.
     #   -- ANY objects that meet the criteria are fine.
     # Put a statement in   main   to test this function
     #    (by calling this function).
@@ -77,7 +112,7 @@ def circle_and_rectangle():
     # ------------------------------------------------------------------
 
 
-def lines():
+def lines(x1,x2,y1,y2):
     """
     -- Constructs a rg.RoseWindow.
     -- Constructs and draws on the window two rg.Lines such that:
@@ -99,10 +134,33 @@ def lines():
 
     -- Waits for the user to press the mouse, then closes the window.
     """
-    # TODO: 4. Implement and test this function.
+    window=rg.RoseWindow(400,400)
+    pen_line1= rg.Line(rg.Point(100, 50),rg.Point(200,100))
+    pen_line2=rg.Line(rg.Point(x1,y1),rg.Point(x2,y2))
+    midpointx=(x1+x2)/2
+    midpointy=(y1+y2)/2
+    pen_line2.thickness=15
+    print('Midpoint ',rg.Line.get_midpoint(pen_line2))
+    print('xcoordinates: ',midpointx)
+    print('ycoordinates:  ',midpointy)
+    pen_line1.attach_to(window);
+    pen_line2.attach_to(window);
+    window.render()
+    window.close_on_mouse_click()
+
+
+
+
+
+
+
+
+
+    # Done: 4. Implement and test this function.
 
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # ----------------------------------------------------------------------
 main()
+
